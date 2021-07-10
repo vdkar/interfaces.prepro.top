@@ -11983,15 +11983,33 @@ paths:
 
 
 
-components:
-  schemas:
-    Template:
+definitions:
+  USER:
       type: object
       properties:
-        day:
+        norma_kkal:
           type: string
-          description: День
-          example: "2021-06-30"
+          description: Норма калорий пользователя. Определяется по формуле исходя из его веса, роста, возраста и пола
+          example: "1700"
+        norma_gram_proteins:
+          type: string
+          description: Норма белка пользователя в граммах. Высчитывается исходя из установленного пользователем процента калорий, которые необходимо получать из белка. 1/4 от количества калорий
+          example: "200" 
+        norma_gram_fats:
+          type: string
+          description: Норма жиров пользователя в граммах. Высчитывается исходя из установленного пользователем процента калорий, которые необходимо получать из жиров. 1/9 от количества калорий
+          example: "200"   
+        norma_gram_carbohydrates:
+          type: string
+          description: Норма углеводов пользователя в граммах. Высчитывается исходя из установленного пользователем процента калорий, которые необходимо получать из углеводов. 1/4 от количества калорий
+          example: "200"   
+  MENU:
+      type: object
+      properties:
+        norma_kkal:
+          type: string
+          description: Норма калорий пользователя. Определяется по формуле исходя из его веса, роста, возраста и пола
+          example: "1700"
         in_shoplist:
           type: boolean
           example: "0"
@@ -12007,6 +12025,5 @@ components:
                 type: string
                 description: Прием пищи
                 example: Завтрак
-
-
+  
 
