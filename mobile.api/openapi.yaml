@@ -12006,14 +12006,16 @@ definitions:
   MENU:
       type: object
       properties:
-        norma_kkal:
+        day:
           type: string
-          description: Норма калорий пользователя. Определяется по формуле исходя из его веса, роста, возраста и пола
-          example: "1700"
+          description: Дата для которой будет генерироваться меню
+          example: "2021-06-30"
         in_shoplist:
           type: boolean
           example: "0"
+          description: Находятся ли продукты дня в Списке покупок. При генерировании меню продукты впервые попадают в предложенную дату, а значит они изначально всегда будут в значении false (то есть не в списке покупок). Только после того как алгоритм предложит меню, пользователь может добавлять предложенные продукты в список покупок.
         eatings:
+          description: Приемы пищи
           type: array
           items:
             type: object
@@ -12025,5 +12027,3 @@ definitions:
                 type: string
                 description: Прием пищи
                 example: Завтрак
-  
-
