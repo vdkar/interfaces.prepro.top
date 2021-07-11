@@ -12046,7 +12046,117 @@ components:
                     image:
                       type: string
                       description: Изображение продукта/блюда
-                      example: "https://test.prepro.top/storage/uploads/product/0/407-product20200722202003.jpg"   
+                      example: "https://test.prepro.top/storage/uploads/product/0/407-product20200722202003.jpg" 
+                    measure:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: ID еденицы измерения
+                          example: 1
+                        name:
+                            type: string
+                            description: Сокращенное название еденицы измерения
+                            example: "г"
+                    main_unit:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: ID еденицы измерения
+                          example: 1
+                        name:
+                            type: string
+                            description: Название еденицы измерения
+                            example: "граммы"
+                        short:
+                            type: string
+                            description: Сокращенное название еденицы измерения
+                            example: "г"
+                        type:
+                            type: string
+                            description: Тип измирения количества Продукта (Еденица измирения - "1", Мера - "2")
+                            example: "1"
+                        q_min:
+                            type: string
+                            description: Минимальное значение на Ползунке выбора количества
+                            example: "1"
+                        q_max:
+                            type: string
+                            description: Максимальное значение на Ползунке выбора количества
+                            example: "500"
+                        q_step:
+                            type: string
+                            description: Шаг изменения значения на Ползунке выбора количества
+                            example: "5"
+                        q_qtt:
+                            type: string
+                            description: Дефолтное значение на Ползунке выбора количества
+                            example: "100" 
+                        koef_gramm:
+                            type: string
+                            description: Коэффициент перевода любой Единицы измерения/Меры в граммы. Так как основная единица измерения в системе это граммы, поэтому остальные единицы и меры должны иметь коэффициент перевода в граммы.
+                            example: "1.5"  
+                    measures:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: ID меры
+                          example: 1
+                        name:
+                            type: string
+                            description: Название меры
+                            example: "чайная ложка"
+                        short:
+                            type: string
+                            description: Сокращенное название меры
+                            example: "ч.л."
+                        type:
+                            type: string
+                            description: Тип измирения количества Продукта (Еденица измирения - "1", Мера - "2")
+                            example: "2"
+                        q_min:
+                            type: string
+                            description: Минимальное значение на Ползунке выбора количества
+                            example: "1"
+                        q_max:
+                            type: string
+                            description: Максимальное значение на Ползунке выбора количества
+                            example: "500"
+                        q_step:
+                            type: string
+                            description: Шаг изменения значения на Ползунке выбора количества
+                            example: "5"
+                        q_qtt:
+                            type: string
+                            description: Дефолтное значение на Ползунке выбора количества
+                            example: "100" 
+                        koef_gramm:
+                            type: string
+                            description: Коэффициент перевода любой Единицы измерения/Меры в граммы. Так как основная единица измерения в системе это граммы, поэтому остальные единицы и меры должны иметь коэффициент перевода в граммы.
+                            example: "1.5"  
+                    qtt:
+                      type: string
+                      description: Количество продукта в меню дня
+                      example: "120"
+                    kkal:
+                      type: string
+                      description: Количество калорий продукта в меню дня
+                      example: "324" 
+                    proteins:
+                      type: string
+                      description: Количество граммов белков в продукте
+                      example: "8.47"
+                    fats:
+                      type: string
+                      description: Количество жиров белков в продукте
+                      example: "5.37"
+                    carbohydrates:
+                      type: string
+                      description: Количество углеводов белков в продукте
+                      example: "5.25"  
+  
 
     Userqq:
       type: object
