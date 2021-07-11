@@ -11981,10 +11981,32 @@ paths:
             summary: When the value is present
             value: 123abc
 
+components:
+  schemas:
+    Template:
+      type: object
+      properties:
+        day:
+          type: string
+          description: День
+          example: "2021-06-30"
+        in_shoplist:
+          type: boolean
+          example: "0"
+        eatings:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 150
+              name:
+                type: string
+                description: Прием пищи
+                example: Завтрак
 
-
-definitions:
-  USER:
+    Userqq:
       type: object
       properties:
         norma_kkal:
@@ -11994,16 +12016,16 @@ definitions:
         norma_gram_proteins:
           type: string
           description: Норма белка пользователя в граммах. Высчитывается исходя из установленного пользователем процента калорий, которые необходимо получать из белка. 1/4 от количества калорий
-          example: "200" 
+          example: "200"
         norma_gram_fats:
           type: string
           description: Норма жиров пользователя в граммах. Высчитывается исходя из установленного пользователем процента калорий, которые необходимо получать из жиров. 1/9 от количества калорий
-          example: "200"   
+          example: "200"
         norma_gram_carbohydrates:
           type: string
           description: Норма углеводов пользователя в граммах. Высчитывается исходя из установленного пользователем процента калорий, которые необходимо получать из углеводов. 1/4 от количества калорий
-          example: "200"   
-  MENU:
+          example: "200"
+    Menuqq:
       type: object
       properties:
         day:
