@@ -11988,7 +11988,7 @@ components:
       properties:
         day:
           type: string
-          description: День
+          description: Дата для которой будет генерироваться меню
           example: "2021-06-30"
         in_shoplist:
           type: boolean
@@ -12000,11 +12000,53 @@ components:
             properties:
               id:
                 type: integer
+                description: ID приема пищи
                 example: 150
               name:
                 type: string
-                description: Прием пищи
-                example: Завтрак
+                description: Название приема пищи
+                example: "Завтрак"
+              time:
+                type: string
+                description: Время приема пищи
+                example: "13:00:00"
+              kkal:
+                type: string
+                description: Сумма калорий продуктов находящихся в приеме пищи
+                example: "543"
+              proteins:
+                type: string
+                description: Сумма граммов белков продуктов находящихся в приеме пищи
+                example: "8.47"
+              fats:
+                type: string
+                description: Сумма граммов жиров продуктов находящихся в приеме пищи
+                example: "5.37"
+              carbohydrates:
+                type: string
+                description: Сумма граммов углеводов продуктов находящихся в приеме пищи
+                example: "5.25"  
+              contains:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: ID Продукта
+                      example: 150
+                    type:
+                      type: string
+                      description: Тип питания Продукт или Блюдо
+                      example: "product"
+                    name:
+                      type: string
+                      description: Название продукта/блюда
+                      example: "Авокадо"
+                    image:
+                      type: string
+                      description: Изображение продукта/блюда
+                      example: "https://test.prepro.top/storage/uploads/product/0/407-product20200722202003.jpg"   
 
     Userqq:
       type: object
