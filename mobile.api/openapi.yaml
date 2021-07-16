@@ -6,9 +6,9 @@ info:
     email: vdkarpov@gmail.com
   version: 1.0.0
 servers:
-  - url: 'https://test.prepro.top/api/v1/'
+  - url: 'https://test.prepro.top/api/v1'
     description: Stage сервер
-  - url: 'https://prepro.cridex.net/api/v1/'
+  - url: 'https://prepro.cridex.net/api/v1'
     description: Dev сервер
 paths:
   '/templates/calories/{date}':
@@ -29,7 +29,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Template'
       security:
-        - oAuth: []
+        - oAuth: [ ]
     delete:
       tags:
         - Шаблоны меню (колорийности)
@@ -40,8 +40,8 @@ paths:
           description: Дата дня для генерации меню дня
           example: '2021-06-30'
       security:
-        - oAuth: []
-  /api/v1/activity:
+        - oAuth: [ ]
+  /activity:
     get:
       summary: 1.1. Список возможных типов активностей (упражнений) c фильтром по названию.
       description: ''
@@ -153,7 +153,7 @@ paths:
                     kkal integer кол-во сжигаемых ккал за 30 минут,
               required:
                 - query
-      security: []
+      security: [ ]
     post:
       summary: 1.3. Добавление активности
       description: |-
@@ -284,7 +284,7 @@ paths:
                 - date_utc_timestamp
                 - duration
                 - period
-  '/api/v1/activity/{activity}':
+  '/activity/{activity}':
     get:
       summary: 1.2. Подробная информация по типу активности (упражнению)
       description: ''
@@ -394,7 +394,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Activity - Упражнения и активности
-  '/api/v1/activity/{id}':
+  '/activity/{id}':
     patch:
       summary: 1.4. Редактирование активности
       description: |-
@@ -533,7 +533,7 @@ paths:
           present:
             summary: When the value is present
             value: '2201027000'
-  /api/v1/brand:
+  /brand:
     get:
       summary: 2.1. Список брендов для фильтра комплексов
       description: ''
@@ -624,7 +624,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Brand - Бренды комплексов
-  /api/v1/calories:
+  /calories:
     post:
       summary: |-
         3.1. Добавить калории
@@ -736,7 +736,7 @@ paths:
               required:
                 - kkal
                 - datetime_utc_timestamp
-  '/api/v1/calories/{id}':
+  '/calories/{id}':
     delete:
       summary: |-
         3.2. Удалить калории
@@ -847,7 +847,7 @@ paths:
                   example: 201027000
               required:
                 - id
-  '/api/v1/complex/{complex}':
+  '/complex/{complex}':
     get:
       summary: 4.1. Экран комплекса
       description: ''
@@ -1015,7 +1015,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Complex - Комлексы
-  /api/v1/courses:
+  /courses:
     post:
       summary: 5.1. Создание курса
       description: ''
@@ -1159,7 +1159,7 @@ paths:
                 - moment
                 - period
                 - days
-  /api/v1/courses/active:
+  /courses/active:
     get:
       summary: |-
         5.6. Список активных курсов
@@ -1258,7 +1258,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Course - Курсы
-  /api/v1/courses/created:
+  /courses/created:
     get:
       summary: |-
         5.7. Список созданных курсов
@@ -1356,7 +1356,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Course - Курсы
-  '/api/v1/courses/{id}':
+  '/courses/{id}':
     get:
       summary: 5.2. Вся информация по курсу
       description: ''
@@ -1585,7 +1585,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Course - Курсы
-      security: []
+      security: [ ]
     delete:
       summary: |-
         5.5. Удалить курс
@@ -1684,8 +1684,8 @@ paths:
                     example: NOT_FOUND
       tags:
         - Course - Курсы
-      security: []
-  '/api/v1/courses/{id}/deactivate':
+      security: [ ]
+  '/courses/{id}/deactivate':
     post:
       summary: |-
         5.4. Деактивировать курс
@@ -1781,8 +1781,8 @@ paths:
                     example: NOT_FOUND
       tags:
         - Course - Курсы
-      security: []
-  /api/v1/diets:
+      security: [ ]
+  /diets:
     get:
       summary: 6.1. Экран планы питания - Список диет
       description: ''
@@ -1859,7 +1859,7 @@ paths:
                     example: UNAUTHORIZED
       tags:
         - Diets - Диеты
-  '/api/v1/diets/{id}':
+  '/diets/{id}':
     get:
       summary: 6.2. Экран планы питания - Планы питания выбранной диеты с подгрузкой
       description: ''
@@ -1962,7 +1962,7 @@ paths:
           present:
             summary: When the value is present
             value: ut
-  '/api/v1/dish/{dish}':
+  '/dish/{dish}':
     get:
       summary: |-
         7.3. Экран блюда
@@ -2261,7 +2261,7 @@ paths:
                 type: array
                 items:
                   type: object
-                example: []
+                example: [ ]
         '400':
           description: '400'
           content:
@@ -2312,7 +2312,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Dish - Блюда
-  /api/v1/dish/ingredients:
+  /dish/ingredients:
     get:
       summary: 7.4. Получение ингредиентов по строке поиска
       description: ''
@@ -2397,7 +2397,7 @@ paths:
                         koef: 1
       tags:
         - Dish - Блюда
-  /api/v1/dish/categories:
+  /dish/categories:
     get:
       summary: 7.5. Получение категорий блюд
       description: ''
@@ -2490,7 +2490,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Dish - Блюда
-  /api/v1/dish/created:
+  /dish/created:
     get:
       summary: 7.1. Список созданных блюд
       description: ''
@@ -2584,7 +2584,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Dish - Блюда
-  /api/v1/dish/imported:
+  /dish/imported:
     get:
       summary: 7.2. Список импортированных блюд
       description: ''
@@ -2678,7 +2678,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Dish - Блюда
-  /api/v1/dish:
+  /dish:
     post:
       summary: 7.6. Сохранение блюда
       description: ''
@@ -2716,7 +2716,7 @@ paths:
                 type: array
                 items:
                   type: object
-                example: []
+                example: [ ]
         '400':
           description: '400'
           content:
@@ -2793,13 +2793,13 @@ paths:
                 ingredients:
                   type: array
                   description: 'Массив ингредиентов, где каждый ингредиент - это объект из четырех ключей: обязательно id - идентификатор продукта-ингредиента,необязательный cook_method - способ приготовления string из возможный для ингредиента, обязательно qtt - кол-во, обязательный measure_id - ИД единицы измерения.'
-                  example: []
+                  example: [ ]
                   items:
                     type: object
                 steps:
                   type: array
                   description: 'Массив шагов приготовления, где каждый шаг - это объект из двух ключей: необязательное фото image и обязательное description описание шага string, ограничение 65535 в базе.'
-                  example: []
+                  example: [ ]
                   items:
                     type: object
               required:
@@ -2808,7 +2808,7 @@ paths:
                 - portions
                 - category_id
                 - steps
-  /api/v1/drinks:
+  /drinks:
     get:
       summary: 8.1. Список напитков для баланса жидкостей
       description: ''
@@ -2896,7 +2896,7 @@ paths:
                     example: UNAUTHORIZED
       tags:
         - Drinks - Баланс жидкости
-  '/api/v1/drinks/{drink}':
+  '/drinks/{drink}':
     delete:
       summary: 8.6. Убрать жидкость из избранного
       description: ''
@@ -2976,7 +2976,7 @@ paths:
                     example: UNAUTHORIZED
       tags:
         - Drinks - Баланс жидкости
-  '/api/v1/drinks/{drink}/portion':
+  '/drinks/{drink}/portion':
     post:
       summary: 8.4. Редактировать избранную порцию
       description: ''
@@ -3148,7 +3148,7 @@ paths:
                     example: UNAUTHORIZED
       tags:
         - Drinks - Баланс жидкости
-  '/api/v1/drinks/{drink}/drink':
+  '/drinks/{drink}/drink':
     post:
       summary: 8.2. Добавить выпитую жидкость
       description: ''
@@ -3253,7 +3253,7 @@ paths:
                   example: 100
               required:
                 - portion
-  /api/v1/drinks/cancel:
+  /drinks/cancel:
     post:
       summary: 8.3. Отменить последнюю выпитую жидкость
       description: ''
@@ -3345,7 +3345,7 @@ paths:
                     example: UNAUTHORIZED
       tags:
         - Drinks - Баланс жидкости
-  '/api/v1/eating/{date}':
+  '/eating/{date}':
     post:
       summary: 9.1. Добавить прием пищи
       description: ''
@@ -3386,7 +3386,7 @@ paths:
                   name: мой перекус1
                   time: '12:00:00'
                   kkal: 0
-                  contains: []
+                  contains: [ ]
                 properties:
                   id:
                     type: integer
@@ -3402,7 +3402,7 @@ paths:
                     example: 0
                   contains:
                     type: array
-                    example: []
+                    example: [ ]
         '400':
           description: '400'
           content:
@@ -3454,7 +3454,7 @@ paths:
                   example: '13:15:00'
               required:
                 - time
-  '/api/v1/eating/{date}/{eatingcat}':
+  '/eating/{date}/{eatingcat}':
     patch:
       summary: 9.2. Редактировать название или время приема пищи
       description: ''
@@ -3630,7 +3630,7 @@ paths:
                     example: UNAUTHORIZED
       tags:
         - Eatings - Приемы пищи в меню
-  /api/v1/favorites:
+  /favorites:
     get:
       summary: 10.3. Список избранных продуктов/блюд
       description: ''
@@ -3957,7 +3957,7 @@ paths:
               required:
                 - content_id
                 - content_type
-  /api/v1/feedback:
+  /feedback:
     post:
       summary: 11.1. Создание обращения в поддержку
       description: ''
@@ -4048,8 +4048,8 @@ paths:
                 - name
                 - email
                 - message
-      security: []
-  '/api/v1/material/{materialFull}':
+      security: [ ]
+  '/material/{materialFull}':
     get:
       summary: 13.1. Свойства вещества
       description: ''
@@ -4133,10 +4133,10 @@ paths:
                             user_group: false
                     - firstColumn: Мужчины
                       secondColumn: Женщины
-                      rows: []
+                      rows: [ ]
                     - firstColumn: Беременность
                       secondColumn: Лактация
-                      rows: []
+                      rows: [ ]
                   main_unit:
                     id: 10
                     name: мкг DFE
@@ -4223,10 +4223,10 @@ paths:
                               user_group: false
                       - firstColumn: Мужчины
                         secondColumn: Женщины
-                        rows: []
+                        rows: [ ]
                       - firstColumn: Беременность
                         secondColumn: Лактация
-                        rows: []
+                        rows: [ ]
                     items:
                       type: object
                   main_unit:
@@ -4305,7 +4305,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Material - Вещества
-  '/api/v1/material/{material}/products':
+  '/material/{material}/products':
     get:
       summary: '13.2. Список продуктов с указанным веществом с подгрузкой. {material}-integer ИД вещества, которое должно содержаться в продукте'
       description: ''
@@ -4426,7 +4426,7 @@ paths:
           present:
             summary: When the value is present
             value: beatae
-  '/api/v1/material/{material}/complexes':
+  '/material/{material}/complexes':
     get:
       summary: 13.3. Список комплексов с указанным веществом с подгрузкой и фильтром
       description: ''
@@ -4592,7 +4592,7 @@ paths:
           present:
             summary: When the value is present
             value: 'brand_id[]=1&brand_id[]=2'
-  /api/v1/nutrition/search/categories:
+  /nutrition/search/categories:
     get:
       summary: 14.8. Категории для фильтра поиска продуктов/блюд для добавления в меню/план питания.
       description: ''
@@ -4669,7 +4669,7 @@ paths:
                     example: UNAUTHORIZED
       tags:
         - Menu - Меню
-  /api/v1/nutrition/search:
+  /nutrition/search:
     post:
       summary: '14.9. Поиск по продуктам, блюдам для добавления в меню/план питания.'
       description: ''
@@ -4798,7 +4798,7 @@ paths:
           present:
             summary: When the value is present
             value: desc
-  /api/v1/menu:
+  /menu:
     get:
       summary: 14.2. Получить меню на 2 недели
       description: ''
@@ -4854,27 +4854,27 @@ paths:
                       - name: Завтрак
                         time: '09:00:00'
                         kkal: 0
-                        contains: []
+                        contains: [ ]
                       - name: Обед
                         time: '13:00:00'
                         kkal: 0
-                        contains: []
+                        contains: [ ]
                       - name: Первый перекус
                         time: '11:00:00'
                         kkal: 0
-                        contains: []
+                        contains: [ ]
                       - name: Ужин
                         time: '18:00:00'
                         kkal: 0
-                        contains: []
+                        contains: [ ]
                       - name: Второй перекус
                         time: '15:00:00'
                         kkal: 0
-                        contains: []
+                        contains: [ ]
                       - name: Перед сном
                         time: '20:00:00'
                         kkal: 0
-                        contains: []
+                        contains: [ ]
         '400':
           description: '400'
           content:
@@ -5035,7 +5035,7 @@ paths:
                   example: '2020-05-01'
               required:
                 - monday
-  '/api/v1/menu/{date}':
+  '/menu/{date}':
     get:
       summary: 14.3. Меню дня
       description: ''
@@ -5258,7 +5258,7 @@ paths:
           present:
             summary: When the value is present
             value: fugiat
-  /api/v1/menu/put:
+  /menu/put:
     post:
       summary: 14.5. Добавить продукт/блюдо в меню
       description: ''
@@ -5376,7 +5376,7 @@ paths:
                 - measure_id
                 - content_id
                 - content_type
-  /api/v1/menu/edit:
+  /menu/edit:
     post:
       summary: 14.6. Изменить продукт/блюдо в меню
       description: ''
@@ -5499,7 +5499,7 @@ paths:
                 - old_measure_id
                 - content_id
                 - content_type
-  /api/v1/menu/pop:
+  /menu/pop:
     post:
       summary: 14.7. Удалить продукт/блюдо из меню
       description: ''
@@ -5612,7 +5612,18 @@ paths:
                 - measure_id
                 - content_id
                 - content_type
-  /api/v1/user/daystat:
+  /menu//{date}:
+    delete:
+      tags:
+        - Menu - Меню
+      summary: Удаляем все продукты из меню дня за определенную дату
+      parameters:
+        - name: date
+          description: Дата дня
+          example: '2021-06-30'
+      security:
+        - oAuth: [ ]
+  /user/daystat:
     get:
       summary: 14.4. Параметры КБЖУ и жидкость за день.
       description: ''
@@ -5720,7 +5731,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Menu - Меню
-  /api/v1/nutrition/set:
+  /nutrition/set:
     post:
       summary: 15.3. Установка плана питания
       description: ''
@@ -5818,7 +5829,7 @@ paths:
               required:
                 - plan_id
                 - from
-  '/api/v1/nutrition/plans/{plan}':
+  '/nutrition/plans/{plan}':
     patch:
       summary: 15.4. Редактировать название сохраненного меню (плана питания)
       description: ''
@@ -6203,7 +6214,7 @@ paths:
                     example: UNAUTHORIZED
       tags:
         - Nutrition - Планы питания
-  /api/v1/nutrition/plans:
+  /nutrition/plans:
     get:
       summary: |-
         15.1. Экран планы питания - сохраненными меню пользователя (добавленные в избранное и импортированные по коду)
@@ -6299,7 +6310,7 @@ paths:
           present:
             summary: When the value is present
             value: aut
-  '/api/v1/nutrition/{plan}/eating':
+  '/nutrition/{plan}/eating':
     post:
       summary: 15.9. Добавить прием пищи в план питания
       description: ''
@@ -6340,7 +6351,7 @@ paths:
                   name: мой перекус1
                   time: '12:00:00'
                   kkal: 0
-                  contains: []
+                  contains: [ ]
                 properties:
                   id:
                     type: integer
@@ -6356,7 +6367,7 @@ paths:
                     example: 0
                   contains:
                     type: array
-                    example: []
+                    example: [ ]
         '400':
           description: '400'
           content:
@@ -6616,7 +6627,7 @@ paths:
               required:
                 - day
                 - eating_id
-  '/api/v1/nutrition/{plan}/content/put':
+  '/nutrition/{plan}/content/put':
     post:
       summary: 15.6. Добавить продукт/блюдо в план питания
       description: ''
@@ -6734,7 +6745,7 @@ paths:
                 - measure_id
                 - content_id
                 - content_type
-  '/api/v1/nutrition/{plan}/content/edit':
+  '/nutrition/{plan}/content/edit':
     post:
       summary: 15.7. Изменить продукт/блюдо в плане питания
       description: ''
@@ -6857,7 +6868,7 @@ paths:
                 - old_measure_id
                 - content_id
                 - content_type
-  '/api/v1/nutrition/{plan}/content/pop':
+  '/nutrition/{plan}/content/pop':
     post:
       summary: 15.8. Удалить продукт/блюдо из плана питания
       description: ''
@@ -6970,7 +6981,7 @@ paths:
                 - measure_id
                 - content_id
                 - content_type
-  '/api/v1/product/{productWithIsFavorite}':
+  '/product/{productWithIsFavorite}':
     get:
       summary: 16.1. Экран продукта-состав
       description: ''
@@ -7210,7 +7221,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Product - Продукты
-  '/api/v1/product/{product}/dishes':
+  '/product/{product}/dishes':
     get:
       summary: 16.2. Список блюд с указанным ингредиентом с подгрузкой.
       description: |-
@@ -7340,7 +7351,7 @@ paths:
           present:
             summary: When the value is present
             value: dicta
-  /api/v1/report:
+  /report:
     get:
       summary: 17.1. Отчет по показателям по ВЫПОЛНЕННЫМ ДЕЙСТВИЯМ за день/диапазон.
       description: |-
@@ -7420,7 +7431,7 @@ paths:
                             val: 900
                           pcent_norm: 8
                     - name: Минералы
-                      items: []
+                      items: [ ]
                   fats:
                     - name: Насыщенные жиры
                       color: '#ff9130'
@@ -7464,7 +7475,7 @@ paths:
                               val: 900
                             pcent_norm: 8
                       - name: Минералы
-                        items: []
+                        items: [ ]
                     items:
                       type: object
                   fats:
@@ -7537,7 +7548,7 @@ paths:
                     example: UNAUTHORIZED
       tags:
         - Reports - Отчеты
-  '/api/v1/report/plan/{id}':
+  '/report/plan/{id}':
     get:
       summary: 17.2. Отчет по показателям плана питания.
       description: |-
@@ -7613,7 +7624,7 @@ paths:
                             val: 900
                           pcent_norm: 8
                     - name: Минералы
-                      items: []
+                      items: [ ]
                   fats:
                     - name: Насыщенные жиры
                       color: '#ff9130'
@@ -7657,7 +7668,7 @@ paths:
                               val: 900
                             pcent_norm: 8
                       - name: Минералы
-                        items: []
+                        items: [ ]
                     items:
                       type: object
                   fats:
@@ -7730,7 +7741,7 @@ paths:
                     example: UNAUTHORIZED
       tags:
         - Reports - Отчеты
-  /api/v1/report/menu:
+  /report/menu:
     get:
       summary: 17.3. Отчет по показателям меню (текущая и следущая неделя).
       description: |-
@@ -7805,7 +7816,7 @@ paths:
                             val: 900
                           pcent_norm: 8
                     - name: Минералы
-                      items: []
+                      items: [ ]
                   fats:
                     - name: Насыщенные жиры
                       color: '#ff9130'
@@ -7849,7 +7860,7 @@ paths:
                               val: 900
                             pcent_norm: 8
                       - name: Минералы
-                        items: []
+                        items: [ ]
                     items:
                       type: object
                   fats:
@@ -7922,7 +7933,7 @@ paths:
                     example: UNAUTHORIZED
       tags:
         - Reports - Отчеты
-  /api/v1/schedule:
+  /schedule:
     get:
       summary: 18.1. Распорядок дня-пропущенные действия за вчера и список действий на сегодня и ближайшие 7 дней в хронологическом порядке.
       description: |-
@@ -8042,7 +8053,7 @@ paths:
                     example: UNAUTHORIZED
       tags:
         - Schedule - Распорядок дня
-  '/api/v1/schedule/{date_ts_utc}/{type}/{id}':
+  '/schedule/{date_ts_utc}/{type}/{id}':
     patch:
       summary: 18.2. Выполнить действие из распорядка дня или отменить его выполнение.
       description: ''
@@ -8238,7 +8249,7 @@ paths:
           present:
             summary: When the value is present
             value: '1'
-  /api/v1/search:
+  /search:
     post:
       summary: '19.1. Поиск по продуктам, блюдам, веществам, комплексам.'
       description: ''
@@ -8380,7 +8391,7 @@ paths:
                 - dish
                 - material
                 - complex
-  /api/v1/shoppinglist:
+  /shoppinglist:
     get:
       summary: 20.1. Получение списка покупок
       description: ''
@@ -8695,7 +8706,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Shoppinglist - Список покупок
-  '/api/v1/shoppinglist/import/{date}':
+  '/shoppinglist/import/{date}':
     post:
       summary: 20.3. Добавление в список покупок всех продуктов из меню
       description: ''
@@ -8804,7 +8815,7 @@ paths:
                   example: append
               required:
                 - type
-  /api/v1/shoppinglist/check:
+  /shoppinglist/check:
     patch:
       summary: 20.4. Отметить выполненым
       description: ''
@@ -8913,7 +8924,7 @@ paths:
                   example: персики консервированные
               required:
                 - item
-  /api/v1/shoppinglist/uncheck:
+  /shoppinglist/uncheck:
     patch:
       summary: 20.5. Отметить невыполненым
       description: ''
@@ -9022,7 +9033,7 @@ paths:
                   example: персики консервированные
               required:
                 - item
-  /api/v1/shoppinglist/edit:
+  /shoppinglist/edit:
     patch:
       summary: 20.6. Редактировать элемент
       description: ''
@@ -9136,7 +9147,7 @@ paths:
               required:
                 - item
                 - new_item
-  /api/v1/shoppinglist/remove:
+  /shoppinglist/remove:
     patch:
       summary: 20.7. Удалить элемент
       description: ''
@@ -9245,7 +9256,7 @@ paths:
                   example: персики консервированные
               required:
                 - item
-  /api/v1/shoppinglist/remove/checked:
+  /shoppinglist/remove/checked:
     patch:
       summary: 20.8. Очистить список выбранных
       description: ''
@@ -9341,7 +9352,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - Shoppinglist - Список покупок
-  /api/v1/user/checkEmailLogin:
+  /user/checkEmailLogin:
     post:
       summary: 21.2. Проверка допустимости email при логине
       description: ''
@@ -9418,8 +9429,8 @@ paths:
                   example: test@test.com
               required:
                 - login
-      security: []
-  /api/v1/user/checkEmail:
+      security: [ ]
+  /user/checkEmail:
     post:
       summary: 21.1. Проверка допустимости email при регистрации.
       description: ''
@@ -9496,8 +9507,8 @@ paths:
                   example: test@test.com
               required:
                 - email
-      security: []
-  /api/v1/login/apple/email:
+      security: [ ]
+  /login/apple/email:
     post:
       summary: 21.18. Запись email для apple_id
       description: ''
@@ -9579,7 +9590,7 @@ paths:
               required:
                 - apple_id
                 - email
-      security: []
+      security: [ ]
     get:
       summary: 21.19. Получение email по apple_id
       description: ''
@@ -9662,8 +9673,8 @@ paths:
                     example: NOT_FOUND
       tags:
         - User - Пользователи
-      security: []
-  /api/v1/user:
+      security: [ ]
+  /user:
     post:
       summary: 21.3.  Анкета - Регистрация по email.
       description: ''
@@ -9927,7 +9938,7 @@ paths:
                 - facebook_id
                 - google_id
                 - apple_id
-      security: []
+      security: [ ]
     get:
       summary: 21.9. Профиль пользователя.
       description: ''
@@ -10099,7 +10110,7 @@ paths:
                     example: NOT_FOUND
       tags:
         - User - Пользователи
-  /api/v1/login:
+  /login:
     post:
       summary: 21.11. Вход по email-пароль
       description: ''
@@ -10273,8 +10284,8 @@ paths:
               required:
                 - login
                 - password
-      security: []
-  /api/v1/login/facebook:
+      security: [ ]
+  /login/facebook:
     post:
       summary: 21.12. Вход через Facebook
       description: ''
@@ -10448,8 +10459,8 @@ paths:
               required:
                 - token
                 - facebook_id
-      security: []
-  /api/v1/login/google:
+      security: [ ]
+  /login/google:
     post:
       summary: 21.13. Вход через Google
       description: ''
@@ -10628,8 +10639,8 @@ paths:
                 - token
                 - google_id
                 - client
-      security: []
-  /api/v1/login/apple:
+      security: [ ]
+  /login/apple:
     post:
       summary: 21.15. Вход через Apple
       description: ''
@@ -10798,8 +10809,8 @@ paths:
                   example: fugit
               required:
                 - apple_id
-      security: []
-  /api/v1/logout:
+      security: [ ]
+  /logout:
     post:
       summary: 21.14. Выход
       description: ''
@@ -10879,7 +10890,7 @@ paths:
                     example: UNAUTHORIZED
       tags:
         - User - Пользователи
-  /api/v1/user/getResetCode:
+  /user/getResetCode:
     post:
       summary: 21.4. Получение кода для активации сброса пароля.
       description: ''
@@ -10968,8 +10979,8 @@ paths:
                   example: test@test.com
               required:
                 - email
-      security: []
-  /api/v1/user/resetPassword:
+      security: [ ]
+  /user/resetPassword:
     post:
       summary: 21.5. Отправка кода для активации сброса пароля.
       description: ''
@@ -11063,8 +11074,8 @@ paths:
               required:
                 - email
                 - code
-      security: []
-  /api/v1/user/updatePassword:
+      security: [ ]
+  /user/updatePassword:
     post:
       summary: 21.6. Обновление пароля.
       description: ''
@@ -11167,8 +11178,8 @@ paths:
                 - email
                 - code
                 - password
-      security: []
-  /api/v1/user/update:
+      security: [ ]
+  /user/update:
     post:
       summary: 21.7. Редактирование параметров пользователя.
       description: ''
@@ -11395,7 +11406,7 @@ paths:
                 - height
                 - weight
                 - age
-  /api/v1/user/norms:
+  /user/norms:
     patch:
       summary: 21.8. Редактирование норм пользователя.
       description: ''
@@ -11609,7 +11620,7 @@ paths:
                 - proteins
                 - fats
                 - carbohydrates
-  /api/v1/user/checkPassword:
+  /user/checkPassword:
     post:
       summary: 21.16. Проверка старого пароля перед сменой пароля.
       description: ''
@@ -11667,7 +11678,7 @@ paths:
                   example: abc123
               required:
                 - old_password
-  /api/v1/user/password:
+  /user/password:
     patch:
       summary: 21.17. Смена пароля авторизованного пользователя.
       description: ''
@@ -11735,7 +11746,7 @@ paths:
                 - old_password
                 - password
                 - password_confirmation
-  '/api/v1/code/{entity}/{id}':
+  '/code/{entity}/{id}':
     get:
       summary: |-
         12.1. Код для экспорта блюда или плана питания
@@ -11860,7 +11871,7 @@ paths:
           present:
             summary: When the value is present
             value: '1'
-  '/api/v1/code/{code}':
+  '/code/{code}':
     post:
       summary: |-
         12.2. Импорт блюда, плана питания, курса
@@ -12025,7 +12036,7 @@ components:
               carbohydrates:
                 type: string
                 description: Сумма граммов углеводов продуктов находящихся в приеме пищи
-                example: "5.25"  
+                example: "5.25"
               contains:
                 type: array
                 items:
@@ -12046,7 +12057,7 @@ components:
                     image:
                       type: string
                       description: Изображение продукта/блюда
-                      example: "https://test.prepro.top/storage/uploads/product/0/407-product20200722202003.jpg" 
+                      example: "https://test.prepro.top/storage/uploads/product/0/407-product20200722202003.jpg"
                     measure:
                       type: object
                       properties:
@@ -12055,9 +12066,9 @@ components:
                           description: ID еденицы измерения
                           example: 1
                         name:
-                            type: string
-                            description: Сокращенное название еденицы измерения
-                            example: "г"
+                          type: string
+                          description: Сокращенное название еденицы измерения
+                          example: "г"
                     main_unit:
                       type: object
                       properties:
@@ -12066,37 +12077,37 @@ components:
                           description: ID еденицы измерения
                           example: 1
                         name:
-                            type: string
-                            description: Название еденицы измерения
-                            example: "граммы"
+                          type: string
+                          description: Название еденицы измерения
+                          example: "граммы"
                         short:
-                            type: string
-                            description: Сокращенное название еденицы измерения
-                            example: "г"
+                          type: string
+                          description: Сокращенное название еденицы измерения
+                          example: "г"
                         type:
-                            type: string
-                            description: Тип измирения количества Продукта (Еденица измирения - "1", Мера - "2")
-                            example: "1"
+                          type: string
+                          description: Тип измирения количества Продукта (Еденица измирения - "1", Мера - "2")
+                          example: "1"
                         q_min:
-                            type: string
-                            description: Минимальное значение на Ползунке выбора количества
-                            example: "1"
+                          type: string
+                          description: Минимальное значение на Ползунке выбора количества
+                          example: "1"
                         q_max:
-                            type: string
-                            description: Максимальное значение на Ползунке выбора количества
-                            example: "500"
+                          type: string
+                          description: Максимальное значение на Ползунке выбора количества
+                          example: "500"
                         q_step:
-                            type: string
-                            description: Шаг изменения значения на Ползунке выбора количества
-                            example: "5"
+                          type: string
+                          description: Шаг изменения значения на Ползунке выбора количества
+                          example: "5"
                         q_qtt:
-                            type: string
-                            description: Дефолтное значение на Ползунке выбора количества
-                            example: "100" 
+                          type: string
+                          description: Дефолтное значение на Ползунке выбора количества
+                          example: "100"
                         koef_gramm:
-                            type: string
-                            description: Коэффициент перевода любой Единицы измерения/Меры в граммы. Так как основная единица измерения в системе это граммы, поэтому остальные единицы и меры должны иметь коэффициент перевода в граммы.
-                            example: "1.5"  
+                          type: string
+                          description: Коэффициент перевода любой Единицы измерения/Меры в граммы. Так как основная единица измерения в системе это граммы, поэтому остальные единицы и меры должны иметь коэффициент перевода в граммы.
+                          example: "1.5"
                     measures:
                       type: object
                       properties:
@@ -12105,37 +12116,37 @@ components:
                           description: ID меры
                           example: 1
                         name:
-                            type: string
-                            description: Название меры
-                            example: "чайная ложка"
+                          type: string
+                          description: Название меры
+                          example: "чайная ложка"
                         short:
-                            type: string
-                            description: Сокращенное название меры
-                            example: "ч.л."
+                          type: string
+                          description: Сокращенное название меры
+                          example: "ч.л."
                         type:
-                            type: string
-                            description: Тип измирения количества Продукта (Еденица измирения - "1", Мера - "2")
-                            example: "2"
+                          type: string
+                          description: Тип измирения количества Продукта (Еденица измирения - "1", Мера - "2")
+                          example: "2"
                         q_min:
-                            type: string
-                            description: Минимальное значение на Ползунке выбора количества
-                            example: "1"
+                          type: string
+                          description: Минимальное значение на Ползунке выбора количества
+                          example: "1"
                         q_max:
-                            type: string
-                            description: Максимальное значение на Ползунке выбора количества
-                            example: "500"
+                          type: string
+                          description: Максимальное значение на Ползунке выбора количества
+                          example: "500"
                         q_step:
-                            type: string
-                            description: Шаг изменения значения на Ползунке выбора количества
-                            example: "5"
+                          type: string
+                          description: Шаг изменения значения на Ползунке выбора количества
+                          example: "5"
                         q_qtt:
-                            type: string
-                            description: Дефолтное значение на Ползунке выбора количества
-                            example: "100" 
+                          type: string
+                          description: Дефолтное значение на Ползунке выбора количества
+                          example: "100"
                         koef_gramm:
-                            type: string
-                            description: Коэффициент перевода любой Единицы измерения/Меры в граммы. Так как основная единица измерения в системе это граммы, поэтому остальные единицы и меры должны иметь коэффициент перевода в граммы.
-                            example: "1.5"  
+                          type: string
+                          description: Коэффициент перевода любой Единицы измерения/Меры в граммы. Так как основная единица измерения в системе это граммы, поэтому остальные единицы и меры должны иметь коэффициент перевода в граммы.
+                          example: "1.5"
                     qtt:
                       type: string
                       description: Количество продукта в меню дня
@@ -12143,7 +12154,7 @@ components:
                     kkal:
                       type: string
                       description: Количество калорий продукта в меню дня
-                      example: "324" 
+                      example: "324"
                     proteins:
                       type: string
                       description: Количество граммов белков в продукте
@@ -12155,8 +12166,8 @@ components:
                     carbohydrates:
                       type: string
                       description: Количество углеводов белков в продукте
-                      example: "5.25"  
-  
+                      example: "5.25"
+
 
     Userqq:
       type: object
