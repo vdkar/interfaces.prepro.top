@@ -5026,7 +5026,7 @@ paths:
                 - monday
   '/menu/{date}':
     get:
-      summary: 14.3. Меню дня
+      summary: Меню дня
       description: ''
       parameters:
         - in: header
@@ -5247,6 +5247,16 @@ paths:
           present:
             summary: When the value is present
             value: fugiat
+    delete:
+      tags:
+        - Menu - Меню
+      summary: Удаляем все продукты из меню дня за определенную дату
+      parameters:
+        - name: date
+          description: Дата дня
+          example: '2021-06-30'
+      security:
+        - oAuth: [ ]
   /menu/put:
     post:
       summary: 14.5. Добавить продукт/блюдо в меню
@@ -5601,17 +5611,8 @@ paths:
                 - measure_id
                 - content_id
                 - content_type
-  /menu/{date}:
-    delete:
-      tags:
-        - Menu - Меню
-      summary: Удаляем все продукты из меню дня за определенную дату
-      parameters:
-        - name: date
-          description: Дата дня
-          example: '2021-06-30'
-      security:
-        - oAuth: [ ]
+  '/menu//{date}':
+
   /user/daystat:
     get:
       summary: 14.4. Параметры КБЖУ и жидкость за день.
