@@ -5601,7 +5601,7 @@ paths:
                 - measure_id
                 - content_id
                 - content_type
-  /menu//{date}:
+  /menu/{date}:
     delete:
       tags:
         - Menu - Меню
