@@ -30,17 +30,6 @@ paths:
                 $ref: '#/components/schemas/Template'
       security:
         - oAuth: [ ]
-    delete:
-      tags:
-        - Шаблоны меню (колорийности)
-      summary: Удаляем меню дня за определенную дату
-      operationId: edbaf3c6a9ed173d72aa3de993b879dc
-      parameters:
-        - name: date
-          description: Дата дня для генерации меню дня
-          example: '2021-06-30'
-      security:
-        - oAuth: [ ]
   /activity:
     get:
       summary: 1.1. Список возможных типов активностей (упражнений) c фильтром по названию.
