@@ -30,6 +30,7 @@ paths:
                 $ref: '#/components/schemas/Template'
       security:
         - oAuth: [ ]
+
   /activity:
     get:
       summary: 1.1. Список возможных типов активностей (упражнений) c фильтром по названию.
@@ -1004,23 +1005,51 @@ paths:
                     example: NOT_FOUND
       tags:
         - Complex - Комлексы
+  /barcode/search:
+    post:
+      tags:
+        - Complex - Комлексы
+      summary: Ищем по шрихкоду
+      parameters:
+        - in: header
+          name: Accept-Language
+          description: ''
+          example: ru
+          schema:
+            type: string
+        - in: header
+          name: Tz
+          description: ''
+          example: Europe/Kiev
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BarcodeSearch'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: numeric
+                  description: Штрикод.
+                  example: '033984017351'
+
+      security:
+        - oAuth: [ ]
+
   /courses:
     post:
       summary: 5.1. Создание курса
       description: ''
       parameters:
-        - in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        - in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
         - in: header
           name: Accept-Language
           description: ''
