@@ -7238,7 +7238,86 @@ paths:
                   message:
                     type: string
                     example: NOT_FOUND
-      tags:
+     tags:
+        - Product - Продукты
+  'list/group/registration':
+    get:
+      summary: 16.2. Список групп Продуктов и Групп-Ограничений для экранов регистрациии 
+      description: |-
+        Список Продуктов по группам для экранов регистрации, где Пользователь выбирает свои Фейворитс. Также запрос содержит список групп-ограничений, которые пользователь не употребляет
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  - groups:
+                    - id: 4
+                      title: НАПИТКИ,
+                      name: Салат з моркви з горіхами
+                      products: 
+                      - id: 4
+                        title: Сік апельсиновий, свіжовичавлений
+                        image: http://prepro.cridex.net//storage/uploads/product/0/4-product20200410170526.jpg
+                      - id: 55
+                        title: Чай чорний
+                        image: http://prepro.cridex.net//storage/uploads/product/0/55-product20200217111105.jpg
+                  - restricted_products:
+                    - id: 14
+                      title: Бобові
+        '400':
+          description: '400'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 400
+                  message: BAD_REQUEST
+                properties:
+                  code:
+                    type: integer
+                    example: 400
+                  message:
+                    type: string
+                    example: BAD_REQUEST
+        '401':
+          description: '401'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 401
+                  message: UNAUTHORIZED
+                properties:
+                  code:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: UNAUTHORIZED
+        '404':
+          description: '404'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 404
+                  message: NOT_FOUND
+                properties:
+                  code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: NOT_FOUND
+     tags:
         - Product - Продукты
   '/product/{product}/dishes':
     get:
