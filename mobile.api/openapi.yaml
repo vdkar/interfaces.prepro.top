@@ -9826,11 +9826,6 @@ paths:
                   fats: 60
                   carbohydrates: 30
                   water: 2.3
-                  selected_activity: [20,31]
-                  selected_products: [20,31]
-                  restricted_products: [20,31]
-                  selected_complexes: [1087,1012]
-                  absence_complexes: [“033984525504”,”03364678888”]
                   facebook_id: facebookid
                   google_id: googleid
                   apple_login: false
@@ -10023,6 +10018,26 @@ paths:
                   type: decimal
                   description: '1,1 required min:1 max:5 Калории.'
                   example: '2.5'
+                selected_activity:
+                  type: array
+                  description: 'список ID активностей пользователя'
+                  example: [20]
+                selected_products:
+                  type: array
+                  description: 'список ID любимых продуктов пользователя'
+                  example: [1158]
+                restricted_products:
+                  type: array
+                  description: 'список ID групп продуктов-ограничений пользователя'
+                  example: [160]
+                selected_complexes:
+                  type: array
+                   description: 'список ID комплексов витаминов пользователя'
+                  example: [1087]
+                absence_complexes:
+                  type: array
+                  description: 'список штрих-кодов комплексов витаминов которые пользователь не нашел в базе данных'
+                  example: [033984525504]
                 facebook_id:
                   type: string
                   description: 'without pasword, google_id, apple_id. ИД пользователя facebook.'
@@ -10053,6 +10068,11 @@ paths:
                 - proteins
                 - fats
                 - carbohydrates
+                - selected_activity
+                - selected_products
+                - restricted_products
+                - selected_complexes
+                - absence_complexes
                 - facebook_id
                 - google_id
                 - apple_id
