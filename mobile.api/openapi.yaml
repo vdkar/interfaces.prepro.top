@@ -9889,20 +9889,20 @@ paths:
                     type: number
                     example: 2.3
                   selected_activity:
-                    type: string
-                    example: 20
+                    type: array
+                    example: [20]
                   selected_products:
-                    type: string
-                    example: 20
+                    type: array
+                    example: [1158]
                   restricted_products:
-                    type: string
-                    example: 20
+                    type: array
+                    example: [160]
                   selected_complexes:
-                    type: string
-                    example: 20
+                    type: array
+                    example: [1087]
                   absence_complexes:
-                    type: string
-                    example: 033984525504
+                    type: array
+                    example: [033984525504]
                   facebook_id:
                     type: string
                     example: facebookid
