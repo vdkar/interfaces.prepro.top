@@ -9888,6 +9888,21 @@ paths:
                   water:
                     type: number
                     example: 2.3
+                  selected_activity:
+                    type: string
+                    example: 20
+                  selected_products:
+                    type: string
+                    example: 20
+                  restricted_products:
+                    type: string
+                    example: 20
+                  selected_complexes:
+                    type: string
+                    example: 20
+                  absence_complexes:
+                    type: string
+                    example: 033984525504
                   facebook_id:
                     type: string
                     example: facebookid
