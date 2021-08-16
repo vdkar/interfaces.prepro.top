@@ -9826,6 +9826,11 @@ paths:
                   fats: 60
                   carbohydrates: 30
                   water: 2.3
+                  selected_activity: [20,31]
+                  selected_products: [20,31]
+                  restricted_products: [20,31]
+                  selected_complexes: [1087,1012]
+                  absence_complexes: [“033984525504”,”03364678888”]
                   facebook_id: facebookid
                   google_id: googleid
                   apple_login: false
