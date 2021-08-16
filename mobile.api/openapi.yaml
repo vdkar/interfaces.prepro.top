@@ -10032,7 +10032,7 @@ paths:
                   example: [160]
                 selected_complexes:
                   type: array
-                   description: 'список ID комплексов витаминов пользователя'
+                  description: 'список ID комплексов витаминов пользователя'
                   example: [1087]
                 absence_complexes:
                   type: array
